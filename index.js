@@ -126,14 +126,14 @@ Hint: You can use .splice() for this
 */
 function removeFlavorByName(param1,param2){
     for (let  i = 0;  i < param1.length;  i++) {
-        if (param1[i].includes(param2)) {
+        if (param1[i] === param2) {
             param1.splice(i,1);
             console.log(param1);
+            
         }   
     }
 }
 removeFlavorByName(originalFlavors, 'Vanilla');
-//COME BACK TO THIS QUESTION, NOT DONE YET SINCE YOU REMOVE 2 VALUES IN THE ARRAY RATHER THAN ONLY ONE.
 
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
@@ -196,12 +196,18 @@ and should return the average number of words per item in the array.
 
 For example, getAverageWordLength(originalFlavors) should return a number between 0 and 3. */
 
-function getAverageWordLength(/*code here*/){
-
-    /*code here*/
-
+function getAverageWordLength(parameter){
+    
+    
+    let backup = 0;
+    for (let i = 0; i < parameter.length; i++) {
+        
+       backup += parameter[i].split(" ").length
+       
+    }
+    return backup/parameter.length;
 }
-
+console.log(getAverageWordLength(originalFlavors));
 
 /* STRETCH 2: Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors.
 
